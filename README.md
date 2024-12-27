@@ -189,7 +189,7 @@ Factor → number | identifier | Function_Call | (Equation)
     It's recommended to use Visual Studio for its integrated features.
 > **Note:** Make sure to configure your IDE for C# development.
 
-# Installation and Setup
+# Installation and Setup 🔧
 
 1. Clone this repository:
 ```bash
@@ -209,7 +209,7 @@ git clone https://github.com/MoDevil/TinyCompiler.git
 3. Click "Compile" 
 4. View the lexical and syntax analysis results
 
-# Troubleshooting
+# Troubleshooting ⚠️
 
 Common issues and solutions:
 
@@ -218,13 +218,15 @@ Common issues and solutions:
    - Clean solution and rebuild
 
 
-# Contributing
+# Contributing 🤝
 
 1. Fork the repository
 2. Create a new branch (`git checkout -b feature/improvement`)
 3. Make changes and commit (`git commit -am 'Add new feature'`)
 4. Push to the branch (`git push origin feature/improvement`)
 5. Create a Pull Request
+
+>We welcome any contributions and are excited to see how we can enhance the project together!
 
 ## Coding Standards
 - Follow C# naming conventions
