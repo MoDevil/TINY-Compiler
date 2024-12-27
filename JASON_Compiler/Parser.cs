@@ -209,7 +209,7 @@ namespace Tiny_Compiler
             Node identifier = Match(Token_Class.Idenifier);
             if (identifier == null)
             {
-                TokenIndex--; //under test  3mlha kda 34an mybwz4 elle b3deh 
+                TokenIndex--; 
                 return null;
             }
 
@@ -329,7 +329,7 @@ namespace Tiny_Compiler
             {
                 node.Children.Add(Datatype());
 
-                Node declList = DeclarationList(); // mthndla kroke kda 
+                Node declList = DeclarationList();
                 if (declList == null)
                 {
                     Errors.Error_List.Add($"Syntax Error at line {startToken.line_number}: Invalid declaration list\n");
@@ -383,7 +383,7 @@ namespace Tiny_Compiler
         {
             Node node = new Node("Decl_Item");
             node.Children.Add(Match(Token_Class.Idenifier)); 
-            node.Children.Add(DeclItemTail()); // 34an lw hyb2a intializex with value w mmkn ykon null y3ne m4 intialized 
+            node.Children.Add(DeclItemTail()); 
             return node;
         }
         private Node DeclItemTail()
@@ -392,7 +392,7 @@ namespace Tiny_Compiler
             {
                 Node node = new Node("Decl_Item_Tail");
                 node.Children.Add(Match(Token_Class.assignmentOp));
-                node.Children.Add(Expression()); // hena lw hwa b null hy7sl m4kla bs till now hwa hy3deha lw fadya 
+                node.Children.Add(Expression()); 
                 return node;
             }
             return null;
@@ -405,7 +405,7 @@ namespace Tiny_Compiler
             else if (IsvalidToken(Token_Class.Float))
                 node.Children.Add(Match(Token_Class.Float));
             else if (IsvalidToken(Token_Class.String))
-                node.Children.Add(Match(Token_Class.String)); // what if it fails?
+                node.Children.Add(Match(Token_Class.String));
             else
             {
                 //error?
@@ -435,7 +435,7 @@ namespace Tiny_Compiler
             }
             node.Children.Add(assignOp);
             Node expr = Expression();
-            if (expr == null) // nfs m4klt el expression
+            if (expr == null) 
             {
                 //SynchronizeToNextStatement();
                 RecoverFromError();
@@ -481,7 +481,7 @@ namespace Tiny_Compiler
         {
             Node node = new Node("Read_Statement");
             node.Children.Add(Match(Token_Class.read));
-            node.Children.Add(Match(Token_Class.Idenifier)); // lw ml2a4 id ytl3 error
+            node.Children.Add(Match(Token_Class.Idenifier)); 
             node.Children.Add(Match(Token_Class.Semicolon));
             return node;
         }
@@ -685,7 +685,7 @@ namespace Tiny_Compiler
             if (IsExpressionStart())
             {
                 Node node = new Node("Argument_List");
-                node.Children.Add(ExpressionList()); // t2rebn hy7sl m4kla lw rg3t null n5leha invalid EXP b2a 
+                node.Children.Add(ExpressionList()); 
                 return node;
             }
             return null;
@@ -697,7 +697,7 @@ namespace Tiny_Compiler
             Node node = new Node("Expression_List");
 
             // Expression is required
-            Node expression = Expression();  // e7tmal y fail
+            Node expression = Expression();  
             if (expression == null) return null;
             node.Children.Add(expression);
 
@@ -808,7 +808,7 @@ namespace Tiny_Compiler
             Node factor = Factor();
             if (factor == null)
             {
-                // Error recovery Skip until we find an operator or end of term      te be checked later 
+                // Error recovery Skip until we find an operator or end of term     
                 while (TokenIndex < TokenStream.Count &&
                        !IsMultOp() &&
                        !IsAddOp() &&
@@ -873,12 +873,12 @@ namespace Tiny_Compiler
             {
                 node.Children.Add(Match(Token_Class.LParanthesis));
                 node.Children.Add(Equation());
-                Node rparanthesis = Match(Token_Class.RParanthesis); // te be checked later if there is missed )
+                Node rparanthesis = Match(Token_Class.RParanthesis); 
                 node.Children.Add(rparanthesis);
             }
             else
             {
-                return null;  // doubt in error here too since factor isn't supposed to be null
+                return null; 
             }
             return node;
         }
@@ -980,7 +980,7 @@ namespace Tiny_Compiler
             try
             {
                 Node firstExpr = Expression();
-                if (firstExpr == null)   // to be checked later cuz of the error msgs 
+                if (firstExpr == null)  
                 {
                     return null;
                 }
