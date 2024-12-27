@@ -52,7 +52,7 @@ int main()
 
 # Sample Run
 
-1) ![Sample Run](https://github.com/MoDevil/TINY-Compiler/blob/master/Docs/images/sample_run.png)
+1) ![Sample Run](./Docs/images/sample_run.png)
 
     Example output for the factorial program:
 ```
@@ -73,7 +73,7 @@ int main() {
 
 Valid TINY program!
 ```
-2)  ![Sample Run](./docs/images/sample_run2.png)
+2)  ![Sample Run](./Docs/images/sample_run2.png)
 
     Example output for the factorial program:
 ```
@@ -116,7 +116,7 @@ return 0;
 
 Valid TINY program!
 ```
-3) ![Sample Run](./docs/images/sample_run3.png)
+3) ![Sample Run](./Docs/images/sample_run3.png)
 
     Example output for the factorial program:
 ```
@@ -138,13 +138,13 @@ Invalid TINY program!
 Here are some sample DFAs used in the lexical analyzer:
 
 ### Identifier DFA
-![Identifier DFA](./docs/images/identifier_dfa.png)
+![Identifier DFA](./Docs/images/identifier_dfa.png)
 
 ### Number DFA
-![Number DFA](./docs/images/number_dfa.png)
+![Number DFA](./Docs/images/number_dfa.png)
 
 ### Number DFA
-![Reserved keywords DFA](./docs/images/reserved_dfa.png)
+![Reserved keywords DFA](./Docs/images/reserved_dfa.png)
 
 ## Grammar Rules
 
