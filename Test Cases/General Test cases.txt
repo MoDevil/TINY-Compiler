@@ -1,0 +1,293 @@
+int main()
+{
+int x
+read x /* missing semicolon */
+if x > 0 then
+int fact := 1
+repeat
+fact := fact * x;
+x := x - 1;
+until x = 0
+write fact
+/* missing end for if */
+return 0;
+}
+Expected:
+Missing Semicolon after int x declaration.
+Missing Semicolon after read x.
+Missing Semicolon after int fact := 1.
+Missing end for the if block.
+
+Found
+Syntax Error at line 4: Expected 'Semicolon' but found 'read'
+Syntax Error at line 5: Expected 'Semicolon' but found 'If'
+Syntax Error at line 7: Expected 'Semicolon' but found 'repeat'
+Syntax Error at line 13: Expected 'Semicolon' but found 'Return'
+Syntax Error at line 13: Missing 'end' keyword for if statement
+
+
+
+
+-------------------------------------------------
+int main()
+{
+int a := 5;
+a = 10; /* invalid assignment operator, should be ':=' */
+write a;
+return 0;
+}
+Expected 
+
+Invalid Assignment Operator: = used instead of := in a = 10.
+
+Found
+Syntax Error at line 4: Expected 'assignmentOp' but found 'EqualOp'
+
+
+----------------------------------------------------
+int main()
+{
+int x := 10;
+int fact := 1;
+repeat
+fact := fact * x;
+x := x - 1;
+/* missing 'until' for repeat loop */
+write fact;
+return 0;
+}
+Expected
+Missing until to terminate the repeat block.
+
+Found
+Syntax Error at line 10: Missing 'until' keyword
+
+-------------------------------------------------
+int factorial(int x)
+{
+int fact := 1;
+/* missing return statement */
+}
+int main()
+{
+int x;
+read x;
+write factorial(x);
+return 0;
+}
+Expected
+Missing Return Statement in the factorial function.
+
+Found
+Syntax Error: Unexpected end of file. Expected 'Return'
+
+---------------------------------------------------
+int main()
+{
+int x := 10;
+if x > 0 then
+    write "Positive";
+/* extra 'else' without an 'if' */
+else
+    write "Negative";
+}
+/* missing closing brace for 'main' */
+
+Expected
+
+
+Missing end for the if statement:
+Missing return
+
+Found 
+
+Syntax Error at line 9: Missing 'end' keyword for if statement
+Syntax Error: Unexpected end of file. Expected 'Return'
+
+------------------------------------------------------------
+int main()
+{
+    int x := 10, y := 5, z := 0;
+    float result := 0.0;
+
+    repeat
+        result := (x + y) * (z + 2.5) / (y - 3); /* z starts as 0 */
+        x := x - 1;
+        z := z + 1;
+    /* missing until condition */
+    write result;
+    return 0;
+}
+
+Expected
+
+Missing until: The repeat block does not end with the until keyword and condition.
+
+Found
+
+Syntax Error at line 12: Missing 'until' keyword
+
+
+-----------------------------------------------------------------
+int main()
+{
+    int counter := 0;
+    int limit := 10;
+    repeat
+        counter := counter + 1;
+        limit := limit - 2;
+    until limit /* condition is incomplete, should compare `limit` to something */
+    write counter;
+    return 0;
+}
+Expected
+
+incomplete until Condition: The until statement must have a valid comparison, such as limit = 0.
+
+Found
+
+Syntax Error at line 8: Missing comparison operator
+Syntax Error at line 8: Incomplete or invalid conditionSyntax Error at line 9: Missing condition after 'until'
+
+
+
+---------------------------------------------------------------------
+int main()
+{
+    int a := 5, b := 10, c := 0;
+    float result := 0.0;
+
+    repeat
+        result := (a * b - (c + 3.5) / 2) + ((b - 1) * (a + c));
+        a := a - 1;
+        b := b + 2;
+    until a < b || c /* condition is incorrect, missing valid comparison for `c` */
+    write result;
+    return 0;
+}
+Expected
+
+Invalid Condition in until: c is used in the until condition without a comparison operator (e.g., <, =, etc.).
+Parentheses in Equations: Ensure all parentheses in the equation are balanced.
+
+Found
+
+Syntax Error at line 10: Missing comparison operator
+Syntax Error at line 10: Missing condition after boolean operator
+
+--------------------------------------------------------------------------
+int main()
+{
+    int x := 10, y := 20;
+    int sum := 0;
+
+    repeat
+        sum := sum + x + (y / 2) * (x - 1); /* complex equation is valid */
+        x := x - 1;
+    until x = 0 || y < 15
+    write sum;
+    return 0;
+}
+Expected
+None (This block is correct and tests the parser's ability to handle complex equations and a valid until condition).
+found 
+Compiled successfully and represented the parse tree successfully 
+-----------------------------------------------------------------------
+int main()
+{
+    int x := 5, y := 10;
+    float result := 0.0;
+
+    repeat
+        result := ((x * y) + 3.2 - ((y - x); /* extra semicolon breaks expression */
+        x := x - 1;
+    until x = y - /* incomplete condition after minus operator */
+    write result;
+    return 0;
+}
+
+Expected
+
+Invalid Expression: Extra semicolon (;) breaks the equation inside result :=.
+Incomplete until Condition: The until condition ends with a - operator without a term to complete it.
+
+Found
+
+Syntax Error at line 7: Expected 'RParanthesis' but found 'Semicolon'
+Syntax Error at line 7: Expected 'RParanthesis' but found 'Semicolon'
+Syntax Error at line 10: Incomplete condition after operator 
+
+-------------------------------------------------------------------- 
+int main()
+{
+    int x := 0, y := 10;
+    float value := 1.0;
+
+    repeat
+        value := value * (x + y / 3.0 * 2 - 5);
+        x := x + 1;
+    until x = y && /* missing second condition for logical AND */
+    write value;
+    return 0;
+}
+Expected Parse Errors:
+
+Incomplete until Condition: The until condition ends with && without a second condition.
+
+Found
+
+Syntax Error at line 9: Missing condition after boolean operator
+
+-----------------------------------------------------------------------
+-----------------------------------------------------------------------
+
+
+/* Test Case 1: Function Declaration and Parameter Errors */
+float calculate(int x, float ) {  /* Missing parameter identifier */
+    int result;
+    result := x * 2;
+    return result
+}  /* Missing semicolon after return statement */
+
+int main() {
+    float val := calculate(5);  /* Incorrect number of arguments */
+    return 0;
+}
+
+Expected Parse Errors:
+
+1. Missing identifier after parameter type 'float'
+2. Missing semicolon after return statement
+
+Found
+
+Syntax Error at line 1: Expected 'Idenifier' but found 'RParanthesis'
+Syntax Error at line 5: Expected 'Semicolon' but found 'RcurlyParanthesis'
+
+
+/* Test Case 2: Control Structure and Condition Errors */
+int main() {
+    int x := 10;
+    if x > 5 || then  /* Invalid condition structure */
+        write x;
+    elseif x = 3
+        write "three";  /* Missing 'then' keyword */
+    else x < 1 then  /* 'else' cannot have a condition */
+        write "small";
+    end
+    return 0;
+}
+
+Expected Parse Errors:
+1. Invalid condition structure after OR operator
+2. Missing 'then' keyword after elseif condition
+3. Unexpected condition after 'else' keyword
+
+Found
+
+Syntax Error at line 3: Missing condition after boolean operator
+Syntax Error at line 6: Expected 'then' but found 'write'
+Syntax Error at line 7: Else can't have a condition 
+
+----------------------------------------
+
