@@ -1,4 +1,4 @@
-# Tiny Programming Language Compiler
+# Tiny Programming Language Compiler ⚙️🖥️
 This repository contains a recursive descent parser and scanner for the TINY programming language, implemented in C#. The project focuses on lexical and syntax analysis, offering a structured foundation for building a complete compiler for the TINY language.
 
 ## Table of Contents
@@ -8,15 +8,15 @@ This repository contains a recursive descent parser and scanner for the TINY pro
 - [Installation and Setup](#installation-and-setup)
 - [Known Limitations](#known-limitations)
 
-## Features
+## Features 🚀
 
 1- [**Lexical Analysis**](./JASON_Compiler/Scanner.cs): Tokenizer (*scanner*) processes input code to extract tokens like identifiers, keywords, operators, and literals.
 
-2- [**Syntax Analysis**](./JASON_Compiler/Parser.cs): *Parser* validates code syntax based on Context-Free Grammar (CFG).
+2- [**Syntax Analysis**](./JASON_Compiler/Parser.cs) : *Parser* validates code syntax based on Context-Free Grammar (CFG).
 
-3- **Error Handling**: Basic error detection and recovery to handle invalid syntax.
+3- **Error Handling** 🛠️: Basic error detection and recovery to handle invalid syntax.
 
-# [The TINY Language Overview](./Language-Description.md)
+# [The TINY Language Overview](./Language-Description.md) 📄
 
 **TINY** is a simple programming language with:
 
@@ -173,13 +173,13 @@ Factor → number | identifier | Function_Call | (Equation)
 
 3- [Test Cases](./Test%20Cases/) - Contains sample programs for testing.
 
-4- [Docs](./Docs/) - Includes Two Files:
+4- [Docs](./Docs/) 📄 - Includes Two Files:
    - [MS1](./Docs/compiler%20MS1%20.pdf) - Contains The Regular Expressions for Tokens, and DFAs rules of Tokens
    - [MS2](./Docs/compiler%20MS2.pdf) - Contains The ***CFG*** "Context Free Grammar" which is the Production Rules of the grammar and detailed specifications about terminals.
 
-# Requirements
+# Requirements 📚
 
-## **Software Requirements:**
+## **Software Requirements:** 💻
 
 * ![.NET](https://img.shields.io/badge/.NET-Framework-blue)  
   Ensure you have the latest version of the .NET Framework/SDK installed.
