@@ -52,7 +52,7 @@ int main()
 
 # Sample Run
 
-1) ![Sample Run](/docs/images/sample_run.png)
+1) ![Sample Run](https://github.com/MoDevil/TINY-Compiler/blob/master/Docs/images/sample_run.png)
 
     Example output for the factorial program:
 ```
