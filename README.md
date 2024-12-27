@@ -16,7 +16,7 @@ This repository contains a recursive descent parser and scanner for the TINY pro
 
 3- **Error Handling**: Basic error detection and recovery to handle invalid syntax.
 
-# [The TINY Language Overview](./Tiny%20PL%20_%20Language%20description_.docx)
+# [The TINY Language Overview](./Language-Description.md)
 
 **TINY** is a simple programming language with:
 
@@ -28,7 +28,7 @@ Data Types: ```int```, ```float```, and ```string```.
 
 Operators: ```Arithmetic (+, -, *, /)```, ```relational (<, >, =, <>)```, and ```boolean (&&, ||)```.
 
-> For Further Details: Click [here](./Tiny%20PL%20_%20Language%20description_.docx)
+> For Further Details: Click [here](./Language-Description.md)
 
 # Example Code
 ```csharp
